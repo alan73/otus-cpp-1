@@ -1,0 +1,9 @@
+language: cpp
+before_script:
+  - sudo apt-get install cmake qtbase5-dev libgtest-dev -y
+  - cd /usr/src/gtest && sudo cmake . && sudo make && sudo cp *.a /usr/lib && cd -
+script: 
+  - mkdir build && cd build
+  - cmake ..
+  - cmake --build .
+  - cmake --build . --target package
